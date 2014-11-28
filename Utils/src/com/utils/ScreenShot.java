@@ -9,7 +9,14 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.view.View;
 
+/** 
+* @ClassName: ScreenShot 
+* @Description: 截屏
+* @author <a href="https://github.com/kylinhuang" target="_blank">kylinhuang</a>
+* @date 2014-11-17 上午10:55:56  
+*/
 public class ScreenShot {
+	
 	 private static Bitmap takeScreenShot(Activity activity) {  
          // View是你需要截图的View  
          View view = activity.getWindow().getDecorView();  

@@ -1,4 +1,8 @@
-package com.utils;
+package com.utils.test;
+
+import com.utils.R;
+import com.utils.R.layout;
+import com.utils.R.menu;
 
 import android.os.Bundle;
 import android.app.Activity;
