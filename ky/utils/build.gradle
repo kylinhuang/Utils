@@ -1,0 +1,147 @@
+apply plugin: 'com.android.library'
+//Gradle Android Maven plugin
+apply plugin: 'com.github.dcendents.android-maven'
+//Gradle Bintray Plugin
+apply plugin: 'com.jfrog.bintray'
+
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    testCompile 'junit:junit:4.12'
+}
+
+def siteUrl = 'https://github.com/kylinhuang/Utils'   // 项目的主页
+def gitUrl = 'https://github.com/kylinhuang/Utils.git'   // Git仓库的url
+
+//配置android-maven-gradle-plugin插件
+group = "cn.kylin.utils"   // groupId,一般由host+artifactId组成
+version = "1.0.0"  //版本号,以后更新library时,它也要跟着增加
+
+
+//配置android-maven-gradle-plugin插件
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+
+                // Add your description here
+                name 'Utils'     //项目的名称
+                description 'a Utils for android'  //项目的描述
+                url siteUrl
+
+                // Set your license
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'kylinhuang'        //bintray的username
+                        name 'kylinhuang'          //姓名
+                        email 'kylinhuang1029@sina.cn'      //邮箱
+                    }
+                }
+
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+
+
+//配置gradle-bintray-plugin插件
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+
+    pkg {
+
+        repo = 'maven' // repo，bintray中的目的仓库名字
+        name = 'Utils' // bintray中默认有九个仓库，且仓库的名字都是固定的，如：maven，npm等
+//        name，package的名字，也就是artifactId
+
+        vcsUrl = 'https://github.com/kylinhuang/Utils.git'  // vcsUrl，package的仓库地址
+        licenses = ['Apache-2.0']   //  licenses，package的licenses
+//        userOrg = 'kylin' //可选项，如果作者属于一个组织，填写组织的名字；否则默认为‘BINTRAY_USER’
+
+        publish = true
+
+        version {
+//            name = '1.0.0'
+            desc = 'a utils tools for android'
+//            released  = new Date()
+//            vcsTag = 'v1.0.0'
+//            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
+            gpg {
+                sign = true //Determines whether to GPG sign the files. The default is false
+                passphrase = properties.getProperty("bintray.gpg.password")  //Optional. The passphrase for GPG signing'
+            }
+
+        }
+
+    }
+
+
+}
