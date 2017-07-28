@@ -29,5 +29,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
 
-    compile 'cn.kylin.utils:utils:1.0.0'
+//    compile 'cn.kylin.utils:utils:1.0.0'
 }
