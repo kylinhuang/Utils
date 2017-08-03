@@ -40,7 +40,7 @@ def gitUrl = 'https://github.com/kylinhuang/Utils.git'   // Git仓库的url
 
 //配置android-maven-gradle-plugin插件
 group = "cn.kylin.utils"   // groupId,一般由host+artifactId组成
-version = "1.0.1"  //版本号,以后更新library时,它也要跟着增加
+version = "1.1.2"  //版本号,以后更新library时,它也要跟着增加
 
 
 //配置android-maven-gradle-plugin插件
@@ -66,7 +66,7 @@ install {
 
                 developers {
                     developer {
-                        id 'kylinhuang'        //bintray的username
+                        id 'kylinhuang'        //bintray 的username
                         name 'kylinhuang'          //姓名
                         email 'kylinhuang1029@sina.cn'      //邮箱
                     }
@@ -93,13 +93,13 @@ task javadoc(type: Javadoc) {
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
 }
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
 
 artifacts {
-    archives javadocJar
+//    archives javadocJar
     archives sourcesJar
 }
 
