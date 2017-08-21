@@ -1,11 +1,11 @@
 package cn.kylin.utils;
 
-import android.content.Context;
 import android.net.DhcpInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
-import android.os.Looper;
 import android.text.TextUtils;
+
+import static android.content.Context.WIFI_SERVICE;
 
 /**
  * Created by kylinhuang on 11/07/2017.
@@ -17,7 +17,7 @@ public class WifiHelper {
     private final WifiManager mWifiManager;
 
     private WifiHelper() {
-        mWifiManager = (WifiManager) Utils.getContext().getSystemService(Context.WIFI_SERVICE);
+        mWifiManager = (WifiManager) Utils.getContext().getSystemService(WIFI_SERVICE);
     }
 
     public static synchronized WifiHelper getInstance() {

@@ -8,6 +8,9 @@ import android.util.Log;
 
 public class LogUtils {
 
+
+    static String IS_OPEN_LOG = "IS_OPEN_LOG";
+
     static String className;//类名
     static String methodName;//方法名
     static int lineNumber;//行数
@@ -15,9 +18,15 @@ public class LogUtils {
     private LogUtils(){
         /* Protect from instantiations */
     }
-    public static boolean isDebuggable() {
-        return BuildConfig.DEBUG;
+
+    public static boolean isOpenLog() {
+        return SPUtils.getInstance().getBoolean(IS_OPEN_LOG,false);
     }
+
+    public static void isOpenLog(Boolean isOpenLog) {
+         SPUtils.getInstance().put(IS_OPEN_LOG,isOpenLog);
+    }
+
     private static String createLog( String log ) {
         StringBuffer buffer = new StringBuffer();
         buffer.append(methodName);
@@ -31,38 +40,38 @@ public class LogUtils {
         lineNumber = sElements[1].getLineNumber();
     }
     public static void e(String message){
-        if (!isDebuggable())
+        if (!isOpenLog())
             return;
 
         getMethodNames(new Throwable().getStackTrace());
         Log.e(className, createLog(message));
     }
     public static void i(String message){
-        if (!isDebuggable())
+        if (!isOpenLog())
             return;
         getMethodNames(new Throwable().getStackTrace());
         Log.i(className, createLog(message));
     }
     public static void d(String message){
-        if (!isDebuggable())
+        if (!isOpenLog())
             return;
         getMethodNames(new Throwable().getStackTrace());
         Log.d(className, createLog(message));
     }
     public static void v(String message){
-        if (!isDebuggable())
+        if (!isOpenLog())
             return;
         getMethodNames(new Throwable().getStackTrace());
         Log.v(className, createLog(message));
     }
     public static void w(String message){
-        if (!isDebuggable())
+        if (!isOpenLog())
             return;
         getMethodNames(new Throwable().getStackTrace());
         Log.w(className, createLog(message));
     }
     public static void wtf(String message){
-        if (!isDebuggable())
+        if (!isOpenLog())
             return;
         getMethodNames(new Throwable().getStackTrace());
         Log.wtf(className, createLog(message));

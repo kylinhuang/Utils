@@ -40,7 +40,7 @@ def gitUrl = 'https://github.com/kylinhuang/Utils.git'   // Git仓库的url
 
 //配置android-maven-gradle-plugin插件
 group = "cn.kylin.utils"   // groupId,一般由host+artifactId组成
-version = "1.1.3"  //版本号,以后更新library时,它也要跟着增加
+version = "1.1.4"  //版本号,以后更新library时,它也要跟着增加
 
 
 //配置android-maven-gradle-plugin插件
