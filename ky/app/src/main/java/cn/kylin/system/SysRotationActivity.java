@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import cn.kylin.R;
 import cn.kylin.base.BaseActivity;
+import cn.kylin.utils.SysUtils;
 
 
 public class SysRotationActivity extends BaseActivity  {
@@ -93,7 +94,7 @@ public class SysRotationActivity extends BaseActivity  {
 
     //更新按钮状态
     private void refreshButton() {
-        if (getRotationStatus(this) == 1) {
+        if (SysUtils.getRotationStatus(this) == 1) {
             mRotationButton.setText("OFF");
 //            mRotationButton.setText(R.string.rotation_off);
         } else {
@@ -103,16 +104,7 @@ public class SysRotationActivity extends BaseActivity  {
     }
 
     //得到屏幕旋转的状态
-    private int getRotationStatus(Context context) {
-        int status = 0;
-        try {
-            status = Settings.System.getInt(context.getContentResolver(), Settings.System.ACCELEROMETER_ROTATION);
-        } catch (Settings.SettingNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return status;
-    }
+
 
     private void setRotationStatus(ContentResolver resolver, int status) {
         //得到uri

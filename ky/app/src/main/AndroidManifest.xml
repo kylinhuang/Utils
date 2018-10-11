@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.kylin">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,6 +21,9 @@
         </activity>
 
         <activity android:name=".system.SysRotationActivity" />
+
+        <activity android:name=".system.DeviceActivity" />
+
     </application>
 
 </manifest>
