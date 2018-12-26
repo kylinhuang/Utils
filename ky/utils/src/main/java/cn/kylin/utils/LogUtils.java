@@ -20,11 +20,11 @@ public class LogUtils {
     }
 
     public static boolean isOpenLog() {
-        return SPUtils.getInstance().getBoolean(IS_OPEN_LOG,false);
+        return SPUtils.getInstance().getBoolean(IS_OPEN_LOG,true);
     }
 
     public static void isOpenLog(Boolean isOpenLog) {
-         SPUtils.getInstance().put(IS_OPEN_LOG,isOpenLog);
+        SPUtils.getInstance().put(IS_OPEN_LOG,isOpenLog);
     }
 
     private static String createLog( String log ) {

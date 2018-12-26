@@ -4,7 +4,7 @@ import android.text.TextUtils;
 
 public class Version {
 
-    public static boolean isBigger(String currentVersion , String tagVersion) {
+    public static boolean isBigger(String currentVersion ,String tagVersion) {
         try {
             if (TextUtils.isEmpty(currentVersion)) return  false ;
             if (TextUtils.isEmpty(tagVersion) ) return  false ;
