@@ -1,4 +1,65 @@
 <resources>
     <string name="app_name">Android Utils</string>
     <string name="enter">\r\n</string>
+    <string name="rationale_COARSE_LOCATION">This app needs access to your COARSE LOCATION .</string>
+
+    <string name="device_info">设备信息</string>
+    <string name="sys">系统</string>
+    <string name="hardware">硬件</string>
+    <string name="screen">屏幕</string>
+    <string name="network">网络</string>
+    <string name="vm">虚拟机</string>
+    <string name="cpu">cpu</string>
+    <string name="app">应用</string>
+
+    <string name="tools">设备信息</string>
+
+
+    <string name="tab_sys">系统</string>
+    <string name="tab_tools">工具</string>
+    <string name="tab_about">关于</string>
+    <string name="remind">提醒</string>
+    <string name="text_On">ON</string>
+    <string name="text_Off">OFF</string>
+    <string name="action_to_permission">服务权限</string>
+    <string name="action_to_open">支付服务</string>
+    <string name="message_remind">消息提醒</string>
+    <string name="message_remind_context">Android Utils 消息提醒运行中.请保持此通知一直存在</string>
+    <string name="red_envelope">微信红包</string>
+    <string name="todo">todo</string>
+    <string name="service_on">开启插件</string>
+    <string name="settings">设置</string>
+    <string name="feedback">反馈</string>
+    <string name="service_off">关闭插件</string>
+    <string name="app_description">使用指南 打开插件开关\n  回到微信聊天\n  坐等红包进账\n </string>
+    <string name="preference">偏好设置</string>
+    <string name="turn_on_toast">点击「微信红包」</string>
+    <string name="turn_on_error_toast"><![CDATA[遇到一些问题,请手动打开系统设置>无障碍服务>微信红包]]></string>
+    <string name="pref_comment_words_summary">随机选择下列感谢语(空格间隔)</string>
+    <string name="watch_options">监视选项</string>
+    <string name="watch_notifications">监视系统通知</string>
+    <string name="watch_notifications_hint">读取新消息通知中的红包提示并进入聊天页</string>
+    <string name="watch_list">监视聊天列表</string>
+    <string name="watch_list_hint">读取聊天列表中的红包提示并进入聊天页</string>
+    <string name="anti_block_options">防封号选项</string>
+    <string name="auto_open_packets">自动拆开红包</string>
+    <string name="open_self">拆开自己发的红包</string>
+    <string name="open_with_delay">延时拆开红包</string>
+    <string name="skip_phrases">屏蔽红包文字</string>
+    <string name="about">关于应用</string>
+    <string name="check_new_version">检查新版本</string>
+    <string name="help_and_feedback">帮助与反馈</string>
+    <string name="help_hint">前往GitHub项目主页提交issue</string>
+    <string name="labs">实验功能</string>
+    <string name="snatch_on_lockscreen">息屏抢红包</string>
+    <string name="snatch_on_lockscreen_hint">保持30分钟后台活跃,可能会极大增加电量消耗,请谨慎使用</string>
+    <string name="auto_reply">拆开红包后自动回复</string>
+    <string name="checking_new_version">正在检查新版本……</string>
+    <string name="delay_instantly">立即</string>
+    <string name="delay_delay">延迟</string>
+    <string name="delay_open">拆开红包</string>
+    <string name="delay_sec">秒</string>
+    <string name="delay_then">然后</string>
+    <string name="d">延迟0秒拆开红包</string>
+    <string name="pref_watch_exclude_words_summary">不拆开包含这些文字的红包(空格间隔)</string>
 </resources>

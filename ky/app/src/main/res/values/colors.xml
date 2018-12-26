@@ -3,4 +3,18 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <!-- 画的线 -->
+    <color name="viewLine">#E5E5E5</color>
+    <color name="bg_color_nav_bar">#FBFBFB</color>
+
+
+    <color name="color_theme_orange">#f39b63</color>
+    <color name="text_color_12">#7E7E7E</color>
+
+
+    <color name="tab_color_select">#80C48C</color>
+    <color name="tab_color_unselect">#7E7E7E</color>
+
 </resources>

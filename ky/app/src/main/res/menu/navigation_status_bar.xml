@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_snap"
+        android:icon="@drawable/selector_tab_sys"
+        android:title="@string/tab_sys" />
+
+    <item
+        android:id="@+id/navigation_security"
+        android:icon="@drawable/selector_tab_tool"
+        android:title="@string/tab_tools" />
+
+    <item
+        android:id="@+id/navigation_me"
+        android:icon="@drawable/selector_tab_about"
+        android:title="@string/tab_about" />
+
+</menu>

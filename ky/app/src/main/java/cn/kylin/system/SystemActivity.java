@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,22 +13,23 @@ import cn.kylin.R;
 import cn.kylin.base.BaseActivity;
 import cn.kylin.utils.ClipboardUtils;
 import cn.kylin.utils.DeviceUtils;
+import cn.kylin.utils.SystemUtil;
 import cn.kylin.utils.ToastUtils;
 import cn.kylin.utils.Utils;
 
 
-public class DeviceActivity extends BaseActivity  {
+public class SystemActivity extends BaseActivity  {
 
     private TextView tv_device;
 
     public static void actionStart(Context mContext) {
-        Intent intent = new Intent(mContext, DeviceActivity.class);
+        Intent intent = new Intent(mContext, SystemActivity.class);
         mContext.startActivity(intent);
     }
 
     @Override
     public int bindLayout() {
-        return R.layout.activity_device;
+        return R.layout.activity_system;
     }
 
     @Override
@@ -55,78 +57,35 @@ public class DeviceActivity extends BaseActivity  {
     public void doBusiness() {
         String enter = Utils.getContext().getResources().getString(R.string.enter);
 
-        boolean isDeviceRooted = DeviceUtils.isDeviceRooted();
-
-        String SDKVersionName = DeviceUtils.getSDKVersionName();
-
-        int SDKVersionCode = DeviceUtils.getSDKVersionCode();
-
-        String AndroidID = DeviceUtils.getAndroidID();
-
-        String MacAddress = DeviceUtils.getMacAddress();
-
-        String Manufacturer = DeviceUtils.getManufacturer();
-        String Model = DeviceUtils.getModel();
-        String [] ABIs = DeviceUtils.getABIs();
-
 
         StringBuffer  sbf = new  StringBuffer();
 
-        sbf.append("isDeviceRooted : ");
-        sbf.append(isDeviceRooted);
+        sbf.append("系统语言 : ");
+        sbf.append(SystemUtil.getSystemLanguage());
+        sbf.append(enter);
+        sbf.append(enter);
+
+        sbf.append("SystemVersion : ");
+        sbf.append(SystemUtil.getSystemVersion());
         sbf.append(enter);
         sbf.append(enter);
 
 
 
-        sbf.append("SDKVersionName : ");
-        sbf.append(SDKVersionName);
+        sbf.append("手机型号 : ");
+        sbf.append(SystemUtil.getSystemModel());
         sbf.append(enter);
         sbf.append(enter);
 
 
-
-        sbf.append("SDKVersionCode : ");
-        sbf.append(SDKVersionCode);
+        sbf.append("手机厂商 : ");
+        sbf.append(SystemUtil.getDeviceBrand());
         sbf.append(enter);
         sbf.append(enter);
 
 
+        Log.e("TAG" ,sbf.toString() );
 
-        sbf.append("AndroidID : ");
-        sbf.append(AndroidID);
-        sbf.append(enter);
-        sbf.append(enter);
-
-
-
-        sbf.append("MacAddress : ");
-        sbf.append(MacAddress);
-        sbf.append(enter);
-        sbf.append(enter);
-
-
-        sbf.append("Manufacturer : ");
-        sbf.append(Manufacturer);
-        sbf.append(enter);
-        sbf.append(enter);
-
-
-
-        sbf.append("Model : ");
-        sbf.append(Model);
-
-        sbf.append(enter);
-        sbf.append(enter);
-
-
-
-        sbf.append("ABIs : ");
-        for (String entity :ABIs){
-            sbf.append(entity);
-            sbf.append("  ");
-        }
-        sbf.append(enter);
 
         sbf.toString();
 

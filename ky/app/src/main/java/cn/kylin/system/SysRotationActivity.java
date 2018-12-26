@@ -95,11 +95,9 @@ public class SysRotationActivity extends BaseActivity  {
     //更新按钮状态
     private void refreshButton() {
         if (SysUtils.getRotationStatus(this) == 1) {
-            mRotationButton.setText("OFF");
-//            mRotationButton.setText(R.string.rotation_off);
+            mRotationButton.setText( "System Rotation is : OFF ");
         } else {
-            mRotationButton.setText("ON");
-//            mRotationButton.setText(R.string.rotation_on);
+            mRotationButton.setText("System Rotation is :  ON");
         }
     }
 

@@ -23,7 +23,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
 
-
     protected View mContentView;
     public Activity mActivity;
 

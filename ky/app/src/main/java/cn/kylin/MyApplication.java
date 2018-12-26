@@ -2,6 +2,7 @@ package cn.kylin;
 
 import android.app.Application;
 
+import cn.kylin.utils.LogUtils;
 import cn.kylin.utils.Utils;
 
 /**
@@ -17,5 +18,6 @@ public class MyApplication extends Application {
         mContext = this ;
 
         Utils.init(mContext);
+        LogUtils.isOpenLog(true);
     }
 }
